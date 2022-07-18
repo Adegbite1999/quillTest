@@ -1,6 +1,6 @@
 pragma solidity 0.6.12;
 
-import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
+import "lib/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
 
 
 contract MockGovToken is BEP20("MockGovToken", "MGToken") {
@@ -22,7 +22,7 @@ contract MockGovToken is BEP20("MockGovToken", "MGToken") {
 
     /// @notice A checkpoint for marking number of votes from a given block
     struct Checkpoint {
-        uint32 fromBlock;
+        uint32 fromBlock; 
         uint256 votes;
     }
 
@@ -34,11 +34,11 @@ contract MockGovToken is BEP20("MockGovToken", "MGToken") {
 
     /// @notice The EIP-712 typehash for the contract's domain
     bytes32 public constant DOMAIN_TYPEHASH =
-        keccak256("EIP712Domain(string name,uint256 chainId,address verifyingContract)");
+    keccak256("EIP712Domain(string name,uint256 chainId,address verifyingContract)");
 
     /// @notice The EIP-712 typehash for the delegation struct used by the contract
     bytes32 public constant DELEGATION_TYPEHASH =
-        keccak256("Delegation(address delegatee,uint256 nonce,uint256 expiry)");
+    keccak256("Delegation(address delegatee,uint256 nonce,uint256 expiry)");
 
     /// @notice A record of states for signing / validating signatures
     mapping(address => uint256) public nonces;
